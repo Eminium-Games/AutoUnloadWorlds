@@ -1,0 +1,6 @@
+name: AutoWorldUnload
+version: 1.0
+main: fr.eminiumgames.autoworldunload.AutoWorldUnload
+api-version: 1.20
+author: eminiumgames
+description: Automatically unloads empty worlds after a delay.

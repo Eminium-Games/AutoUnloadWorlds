@@ -1,0 +1,8 @@
+# Delay before unloading an empty world (in seconds)
+unload-delay-seconds: 60
+
+# Worlds that should NEVER be unloaded
+excluded-worlds:
+  - world
+  - world_nether
+  - world_the_end
