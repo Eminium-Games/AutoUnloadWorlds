@@ -1,8 +1,30 @@
 # Delay before unloading an empty world (in seconds)
 unload-delay-seconds: 60
 
-# Worlds that should NEVER be unloaded
+# Worlds that should NEVER be unloaded by the plugin.
+# The check logic will still examine these worlds when they go empty but
+# the plugin will not attempt to remove them from memory (see
+# unload-chunks-in-excluded below).
 excluded-worlds:
   - world
   - world_nether
   - world_the_end
+
+# If true the plugin will attempt to unload every loaded chunk from a world
+# once it becomes empty.  This can significantly reduce the server's
+# reported "loaded chunk" count, even for worlds that remain open.
+# WARNING: unloading chunks does not save them; any tile entities or
+# entities in those chunks will be discarded.  Use with care.
+unload-chunks: true
+
+# If unload-chunks is enabled and this option is true then chunks will be
+# unloaded even for worlds listed in excluded-worlds.  By default excluded
+# worlds are left entirely alone.
+unload-chunks-in-excluded: true
+
+# Controls whether the plugin is allowed to unload entire worlds when they
+# sit empty.  Set this to false if you need worlds to remain loaded (for
+# example because players travel there frequently) but still want chunks
+# unloaded separately.  The "excluded-worlds" list still applies to
+# prevent world unloading, but this flag makes the behaviour global.
+unload-worlds: false
